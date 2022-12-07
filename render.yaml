@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: group-project-petly-be
+    name: group-project-petly-backend
     env: node
     plan: free
-    repo: https://github.com/Max-Loktionov/petly-be
+    repo: https://github.com/yulyaolshanska/petly-backend
     branch: main
     buildCommand: yarn install
     startCommand: yarn start

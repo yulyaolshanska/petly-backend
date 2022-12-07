@@ -1,5 +1,5 @@
 {
-  "name": "petly-project-be",
+  "name": "petly-project-backend",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -38,13 +38,13 @@
   "main": ".eslintrc.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Max-Loktionov/nodejs-homework-rest-api.git"
+    "url": "git+https://github.com/yulyaolshanska/nodejs-hw-rest-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Max-Loktionov/nodejs-homework-rest-api/issues"
+    "url": "https://github.com/yulyaolshanska/nodejs-hw-rest-api/issues"
   },
-  "homepage": "https://github.com/Max-Loktionov/nodejs-homework-rest-api#readme"
+  "homepage": "https://github.com/yulyaolshanska/nodejs-hw-rest-api#readme"
 }
