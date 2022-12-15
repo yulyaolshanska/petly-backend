@@ -7,6 +7,7 @@ const { asyncWrapper } = require("../helpers");
 
 const { schemasPet } = require("../models/pets");
 const { users: ctrl } = require("../controllers");
+const uploadMiddleware = require("../middleware/uploadNoticeAvatar");
 
 router.get("/", authenticate, asyncWrapper(ctrl.getUser));
 router.get("/notice", authenticate, asyncWrapper(ctrl.getUserNotice));
@@ -16,7 +17,7 @@ router.get("/favorite", authenticate, asyncWrapper(ctrl.getFavoriteNotice));
 router.delete("/favorite", authenticate, asyncWrapper(ctrl.removeFavoriteNotice));
 router.post("/favorite", authenticate, asyncWrapper(ctrl.addFavorite));
 
-router.post("/pets", authenticate, upload.single("avatar"), validation(schemasPet.addPetSchema), asyncWrapper(ctrl.addPet));
+router.post("/pets", authenticate, upload.single("avatar"), uploadMiddleware, validation(schemasPet.addPetSchema), asyncWrapper(ctrl.addPet));
 
 router.delete("/pets/:petsId", authenticate, isValidId, asyncWrapper(ctrl.removePetById));
 router.patch("/avatar", authenticate, upload.single("avatar"), asyncWrapper(ctrl.updateUserAvatar));

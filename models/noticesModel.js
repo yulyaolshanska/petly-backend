@@ -36,7 +36,7 @@ const newsSchema = Schema(
     },
     avatar: {
       type: String,
-      default: "Any",
+      default: "",
     },
     category: {
       type: String,

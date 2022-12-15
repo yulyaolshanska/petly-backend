@@ -22,8 +22,8 @@ const addNoticeCTRL = async (req, res) => {
     // const jimpAvatar = await Jimp.read(tempUpload);
     // await jimpAvatar.resize(imgSizePx, imgSizePx, Jimp.RESIZE_BEZIER).writeAsync(tempUpload);
 
-    // const uploader = async (path = "") => await cloudinary.uploads(path, "petly_dir/notice_avatar");
-    // const newPath = (await uploader(tempUpload)) || null;
+    // const uploader = async path  => await cloudinary.uploads(path, "petly_dir/notice_avatar");
+    // const newPath = (await uploader(tempUpload));
     // fs.unlink(req?.file?.path);
 
     const isEnableCategory = CATHEGORY.indexOf(category); //TODO  del this
