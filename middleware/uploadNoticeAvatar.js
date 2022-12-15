@@ -19,9 +19,11 @@ const uploadMiddleware = async (req, res, next) => {
 
   try {
     const { resultUrl, resultId } = await cloudUpload(tempUpload, public_id, folder, format);
-
+    req.body.avatar = resultUrl;
+    // const uploader = async path  => await cloudinary.uploads(path, "petly_dir/notice_avatar");
+    // const newPath = (await uploader(tempUpload));
     // req.photo = {};
-    folder === "users" ? (req.photo.avatar = resultUrl) : (req.body.avatar = resultUrl);
+    // folder === "users" ? (req.photo.avatar = resultUrl) : (req.body.avatar = resultUrl);
     //   ? ((req.photo.avatar = resultUrl), (req.photo.photoId = resultId))
     //   : ((req.body.avatar = resultUrl), (req.body.photoId = resultId));
 
