@@ -4,6 +4,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const configPath = path.join(__dirname, "..", "config", ".env");
 require("dotenv").config({ path: configPath });
+const { CLOUD_NAME, CLOUD_KEY, CLOUD_SECRET } = process.env;
 
 cloudinary.config({
   cloud_name: CLOUD_NAME,
