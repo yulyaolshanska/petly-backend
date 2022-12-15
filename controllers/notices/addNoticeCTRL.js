@@ -16,8 +16,8 @@ const addNoticeCTRL = async (req, res) => {
   const { _id } = req.user;
   const newId = new ObjectId(_id);
 
-  const { path: tempUpload } = req?.file;
-
+  const { path: tempUpload = "" } = req?.file;
+  console.log("tempUpload", tempUpload);
   const jimpAvatar = await Jimp.read(tempUpload);
   await jimpAvatar.resize(imgSizePx, imgSizePx, Jimp.RESIZE_BEZIER).writeAsync(tempUpload);
 
