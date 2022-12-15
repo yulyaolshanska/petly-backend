@@ -31,7 +31,7 @@ const cloudUpload = async (uploadPath, public_id, folder, format) => {
       transformation: { width: 350, height: 350, crop: "fill" },
     });
     const uploader = async path => await cloudinary.uploads(path, "petly_dir/notice_avatar");
-    const newPath = await uploader(tempUpload);
+    const newPath = await uploader(uploadPath);
 
     const resultUrl = newPath.url;
     const resultId = resultOfUpload.public_id;
