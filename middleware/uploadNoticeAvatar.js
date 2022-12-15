@@ -20,11 +20,12 @@ const uploadMiddleware = async (req, res, next) => {
   try {
     const { resultUrl, resultId } = await cloudUpload(tempUpload, public_id, folder, format);
 
-    req.photo = {};
-    folder === "users"
-      ? ((req.photo.avatar = resultUrl), (req.photo.photoId = resultId))
-      : ((req.body.avatar = resultUrl), (req.body.photoId = resultId));
-
+    // req.photo = {};
+    // folder === "users"
+    //   ? ((req.photo.avatar = resultUrl), (req.photo.photoId = resultId))
+    //   : ((req.body.avatar = resultUrl), (req.body.photoId = resultId));
+    req.body.avatar = resultUrl;
+    req.body.photoId = resultId;
     next();
   } catch (error) {
     throw error;
