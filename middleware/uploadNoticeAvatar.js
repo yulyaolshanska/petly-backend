@@ -4,7 +4,7 @@ const { cloudUpload } = require("../services/db/notices/cloudinaryServices");
 const uploadMiddleware = async (req, res, next) => {
   if (!req.file) {
     delete req.body.image;
-    req.body.photoURL = "https://res.cloudinary.com/dwghwsgmr/image/upload/v1671117182/637c99e2957b3cf05e40fc6e_48031_qd5fe6.png";
+    req.body.avatar = "https://res.cloudinary.com/dwghwsgmr/image/upload/v1671117182/637c99e2957b3cf05e40fc6e_48031_qd5fe6.png";
     req.body.photoId = "";
     return next();
   }
@@ -22,8 +22,8 @@ const uploadMiddleware = async (req, res, next) => {
 
     req.photo = {};
     folder === "users"
-      ? ((req.photo.photoURL = resultUrl), (req.photo.photoId = resultId))
-      : ((req.body.photoURL = resultUrl), (req.body.photoId = resultId));
+      ? ((req.photo.avatar = resultUrl), (req.photo.photoId = resultId))
+      : ((req.body.avatar = resultUrl), (req.body.photoId = resultId));
 
     next();
   } catch (error) {
