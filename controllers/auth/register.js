@@ -3,7 +3,6 @@ const { SECRET_KEY } = process.env;
 const { User } = require("../../models/user");
 const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
-
 const register = async (req, res) => {
   const { password, email, ...rest } = await req.body;
   const user = await User.findOne({ email });
