@@ -1,5 +1,5 @@
 const fs = require("fs/promises");
-const { cloudUpload } = require("../services");
+const { cloudUpload } = require("../services/db/notices/cloudinaryServices");
 
 const uploadMiddleware = async (req, res, next) => {
   if (!req.file) {
