@@ -29,6 +29,10 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
+    photoId: {
+      type: String,
+      default: "",
+    },
     birthday: {
       type: String,
       default: "01.01.1900",

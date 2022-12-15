@@ -24,6 +24,10 @@ const petSchema = new Schema(
       type: String,
       default: "",
     },
+    photoId: {
+      type: String,
+      default: "",
+    },
     owner: {
       type: Schema.Types.ObjectId,
       ref: "user",

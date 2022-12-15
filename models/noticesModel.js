@@ -38,6 +38,10 @@ const newsSchema = Schema(
       type: String,
       default: "",
     },
+    photoId: {
+      type: String,
+      default: "",
+    },
     category: {
       type: String,
       enum: ["sell", "lost_found", "in_good_hands"],
