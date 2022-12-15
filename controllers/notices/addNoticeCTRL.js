@@ -16,15 +16,15 @@ const addNoticeCTRL = async (req, res) => {
   const { _id } = req.user;
   const newId = new ObjectId(_id);
 
-  const { path: tempUpload = "" } = req?.file;
-  console.log("tempUpload", tempUpload);
-  const jimpAvatar = await Jimp.read(tempUpload);
-  await jimpAvatar.resize(imgSizePx, imgSizePx, Jimp.RESIZE_BEZIER).writeAsync(tempUpload);
-
   try {
-    const uploader = async (path = "") => await cloudinary.uploads(path, "petly_dir/notice_avatar");
-    const newPath = (await uploader(tempUpload)) || null;
-    fs.unlink(req?.file?.path);
+    // const { path: tempUpload = "" } = req?.file;
+    // console.log("tempUpload", tempUpload);
+    // const jimpAvatar = await Jimp.read(tempUpload);
+    // await jimpAvatar.resize(imgSizePx, imgSizePx, Jimp.RESIZE_BEZIER).writeAsync(tempUpload);
+
+    // const uploader = async (path = "") => await cloudinary.uploads(path, "petly_dir/notice_avatar");
+    // const newPath = (await uploader(tempUpload)) || null;
+    // fs.unlink(req?.file?.path);
 
     const isEnableCategory = CATHEGORY.indexOf(category); //TODO  del this
     if (isEnableCategory === -1) {
@@ -32,7 +32,7 @@ const addNoticeCTRL = async (req, res) => {
     }
     const availableCategory = CATHEGORY[isEnableCategory];
 
-    const newData = { ...data, avatar: newPath.url, category: availableCategory, owner: newId };
+    const newData = { ...data, category: availableCategory, owner: newId };
     const newNotice = await addNoticeService(newData);
 
     return res.status(201).json({ newNotice });
