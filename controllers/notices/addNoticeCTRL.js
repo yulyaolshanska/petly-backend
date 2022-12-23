@@ -1,4 +1,4 @@
-const { addNoticeService, addNotieceId } = require("../../services/db/notices/noticeServices");
+const { addNoticeService } = require("../../services/db/notices/noticeServices");
 const createError = require("http-errors");
 
 const { ObjectId } = require("mongodb");
@@ -12,7 +12,7 @@ const addNoticeCTRL = async (req, res) => {
   const newId = new ObjectId(_id);
 
   try {
-    const isEnableCategory = CATHEGORY.indexOf(category); //TODO  del this
+    const isEnableCategory = CATHEGORY.indexOf(category); // TODO  del this
     if (isEnableCategory === -1) {
       return res.status(400).json({ message: "Not available category" });
     }

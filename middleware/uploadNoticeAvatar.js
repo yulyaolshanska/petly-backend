@@ -9,16 +9,15 @@ const uploadMiddleware = async (req, res, next) => {
     req.photo.photoId = "";
     return next();
   }
-
   const { path: tempUpload, originalname } = req.file;
   const format = originalname.split(".").pop();
   const { _id } = req.user;
-  const public_id = `${_id + "_" + Date.now()}`;
+  const publicId = `${_id + "_" + Date.now()}`;
 
   try {
-    const { resultUrl, resultId } = await cloudUpload(tempUpload, public_id, format);
+    const { resultUrl } = await cloudUpload(tempUpload, publicId, format);
     req.body.avatar = resultUrl;
-    req.photo.photoId = resultId;
+    req.photo.photoId = publicId;
     next();
   } catch (error) {
     throw error;

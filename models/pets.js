@@ -44,6 +44,7 @@ const addPetSchema = Joi.object({
   birthday: Joi.string(),
   breed: Joi.string().min(2).max(16),
   comments: Joi.string().min(8).max(120),
+  avatar: Joi.string(),
 });
 
 const schemasPet = { addPetSchema };

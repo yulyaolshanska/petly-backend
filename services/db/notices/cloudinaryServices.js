@@ -9,19 +9,15 @@ cloudinary.config({
   secure: true,
 });
 
-const cloudUpload = async (uploadPath, public_id, format) => {
-  try {
-    const resultOfUpload = await cloudinary.uploader.upload(uploadPath, {
-      public_id,
-      format,
-      transformation: { width: 350, height: 350, crop: "fill" },
-    });
-    const resultUrl = resultOfUpload.url;
-    const resultId = resultOfUpload.public_id;
-    return { resultUrl, resultId };
-  } catch (error) {
-    throw error;
-  }
+const cloudUpload = async (uploadPath, publicId, format) => {
+  const resultOfUpload = await cloudinary.uploader.upload(uploadPath, {
+    publicId,
+    format,
+    transformation: { width: 350, height: 350, crop: "fill" },
+  });
+  const resultUrl = resultOfUpload.url;
+  // const resultId = resultOfUpload.publicId;
+  return { resultUrl };
 };
 
 const cloudDelete = async photoId => {
