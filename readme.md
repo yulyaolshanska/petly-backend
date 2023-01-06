@@ -14,7 +14,7 @@
 ---
 
 - 'dev' -- it contains last version of app;
-- 'main' -- deploy to heroku
+- 'main' -- deploy to onrender
 -
 
 ### API:
@@ -23,7 +23,7 @@
 
 **Use api on routes:**
 
---https://petly-be.herokuapp.com
+--https://petly-project-backend.onrender.com
 
 ```
 
