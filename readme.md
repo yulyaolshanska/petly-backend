@@ -23,7 +23,7 @@
 
 **Use api on routes:**
 
---https://petly-project-backend.onrender.com
+--https://petly-backend-production.up.railway.app
 
 ```
 
